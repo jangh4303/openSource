@@ -8,9 +8,9 @@
 * awk 명령어 조사
 
 
->
+>  
 > getopt 명령어
->
+>  
 
 getopt 용도
   * 명령행 플래그와 매개변수를 구문 분석
@@ -96,11 +96,12 @@ $ ./test.sh -a 123 hello.c -bc
 -a '123' -b -c -- 'hello.c'
 ```
 
->
+>  
 >getops 명령어
->
+>  
 
 ![image](https://user-images.githubusercontent.com/94778069/142756507-03b390a8-2009-4134-a8b0-3eb744bbb895.png)
+
 쉘 에서 명령을 실행할 때 옵션을 사용하는데요. 스크립트 파일이나 함수를 실행할 때도 동일하게 옵션을 사용할 수 있습니다. 사용된 옵션은 다른 인수들과 마찬가지로 $1, $2, ... positional parameters 형태로 전달되므로 스크립트 내에서 직접 옵션을 해석해서 사용해야 됩니다. 이때 옵션 해석 작업을 쉽게 도와주는 명령이 getopts 입니다.
 
 옵션에는 short 옵션과 long 옵션이 있는데 getopts 명령은 short 옵션을 처리합니다.
@@ -109,9 +110,9 @@ $ ./test.sh -a 123 hello.c -bc
 |:---|:---|
 |short 옵션은 여러 가지 방법으로 사용할 수 있습니다. 그러므로 getopts 명령을 이용하지 않고 직접 옵션을 해석해 처리한다면 옵션 처리에만 스크립트가 복잡해질 수 있습니다.|--posix, --warning level 와 같은 형태로 사용되는 long 옵션은 short 옵션과는 달리 붙여 쓸 수가 없기 때문에 사용방법이 간단하여 직접 해석해서 처리하는 것이 어렵지 않습니다.|
 
->
+>  
 > sed 명령어
->
+>  
 
 설명 
 
@@ -144,7 +145,39 @@ $ ./test.sh -a 123 hello.c -bc
 이외에도 다양한 사용 방법들이 있다.
 
 
->
+>  
 >awk 명령어
->
+>   
+
+설명
+
+* 표준입력으로 값을 받아 awk 스크립트를 통해 원하는 표준출력을 내보낼 수 있다.
+* awk는 라인을 받아서 구분자를 통해 구분하고 print 명령으로 출력하게 된다.
+
+
+사용 방법
+
+![image](https://user-images.githubusercontent.com/94778069/142757599-94dfbd2a-fc25-456e-8e68-9d23917e18ef.png)
+
+* -F : 구분자를 나타낸다. -F로 구분자를 지정하지 않을 경우에는 공백을 구분자로 사용한다.
+* -f : 스크립트 파일을 이용할 경우 사용한다.
+
+awk를 이용하면 문서의 특정 문자나 문자열을 검색하여 그 부분만 출력할 수 있다
+
+<test 파일>
+
+![image](https://user-images.githubusercontent.com/94778069/142757268-d8c13ce7-de5c-45f1-acb0-1731a4463619.png)
+
+
+예를 들어 다음과 같이 하면 test 파일에서 line을 포함한 라인만 출력된다. `awk '/line/' test`
+
+![image](https://user-images.githubusercontent.com/94778069/142758383-fe076ea6-54b4-461b-a847-36fec0ec3da9.png)
+
+
+
+위 출력 결과에서 공백 을 구분자로 하여 분리한 필드 중 첫 번째 필드만 출력 `awk -F' ' /line/'{print $1}' test`
+
+![image](https://user-images.githubusercontent.com/94778069/142758610-229515b3-d98b-4dda-8ee2-72209e64636b.png)
+
+등 다양한  awk 사용 방법이있다
 
