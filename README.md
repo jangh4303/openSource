@@ -7,8 +7,10 @@
 * sed 명령어 조사
 * awk 명령어 조사
 
-> getopt 명령어
 
+>
+> getopt 명령어
+>
 
 getopt 용도
   * 명령행 플래그와 매개변수를 구문 분석
@@ -94,9 +96,9 @@ $ ./test.sh -a 123 hello.c -bc
 -a '123' -b -c -- 'hello.c'
 ```
 
-
+>
 >getops 명령어
-
+>
 
 ![image](https://user-images.githubusercontent.com/94778069/142756507-03b390a8-2009-4134-a8b0-3eb744bbb895.png)
 쉘 에서 명령을 실행할 때 옵션을 사용하는데요. 스크립트 파일이나 함수를 실행할 때도 동일하게 옵션을 사용할 수 있습니다. 사용된 옵션은 다른 인수들과 마찬가지로 $1, $2, ... positional parameters 형태로 전달되므로 스크립트 내에서 직접 옵션을 해석해서 사용해야 됩니다. 이때 옵션 해석 작업을 쉽게 도와주는 명령이 getopts 입니다.
@@ -107,8 +109,9 @@ $ ./test.sh -a 123 hello.c -bc
 |:---|:---|
 |short 옵션은 여러 가지 방법으로 사용할 수 있습니다. 그러므로 getopts 명령을 이용하지 않고 직접 옵션을 해석해 처리한다면 옵션 처리에만 스크립트가 복잡해질 수 있습니다.|--posix, --warning level 와 같은 형태로 사용되는 long 옵션은 short 옵션과는 달리 붙여 쓸 수가 없기 때문에 사용방법이 간단하여 직접 해석해서 처리하는 것이 어렵지 않습니다.|
 
-
+>
 > sed 명령어
+>
 
 설명 
 
@@ -118,10 +121,13 @@ $ ./test.sh -a 123 hello.c -bc
 
 **sed 명령어 사용법**
 
-test 파일
+<test 파일>
+
 ![image](https://user-images.githubusercontent.com/94778069/142757268-d8c13ce7-de5c-45f1-acb0-1731a4463619.png)
 
+
  * 치환 
+    
     
     예를들어 test파일의 added 를 add로 변경하여 출력 
     `sed 's/added/add/' test`
@@ -132,10 +138,13 @@ test 파일
 
     test파일의 line이 들어간 줄을 삭제하여 출력 
     `sed '/line/d' test`
+    
 ![image](https://user-images.githubusercontent.com/94778069/142757410-5d639956-9bd0-4a0f-b247-16a86b1876cc.png)
 
 이외에도 다양한 사용 방법들이 있다.
 
 
-
+>
+>awk 명령어
+>
 
