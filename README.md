@@ -105,4 +105,37 @@ $ ./test.sh -a 123 hello.c -bc
 
 |short 옵션|long 옵션|
 |:---|:---|
-|hort 옵션은 다음과 같이 여러 가지 방법으로 사용할 수 있습니다. 그러므로 getopts 명령을 이용하지 않고 직접 옵션을 해석해 처리한다면 옵션 처리에만 스크립트가 복잡해질 수 있습니다.|--posix, --warning level 와 같은 형태로 사용되는 long 옵션은 short 옵션과는 달리 붙여 쓸 수가 없기 때문에 사용방법이 간단하여 직접 해석해서 처리하는 것이 어렵지 않습니다.|
+|short 옵션은 여러 가지 방법으로 사용할 수 있습니다. 그러므로 getopts 명령을 이용하지 않고 직접 옵션을 해석해 처리한다면 옵션 처리에만 스크립트가 복잡해질 수 있습니다.|--posix, --warning level 와 같은 형태로 사용되는 long 옵션은 short 옵션과는 달리 붙여 쓸 수가 없기 때문에 사용방법이 간단하여 직접 해석해서 처리하는 것이 어렵지 않습니다.|
+
+
+> sed 명령어
+
+설명 
+
+* ed명령어와 grep명령어 기능의 일부를 합친 것이 sed(stream editor)명령어 이다.
+* sed명령어는 1개 라인씩 입력 라인을 읽어들여 표준출력으로 출력한다.
+* 일치하는 문자열이 있으면 그 문자열을 대치한 후 출력하고 일치하는 문자열이 없으면 그 라인은 수정되지 않고 그대로 출력된다.
+
+**sed 명령어 사용법**
+
+test 파일
+![image](https://user-images.githubusercontent.com/94778069/142757268-d8c13ce7-de5c-45f1-acb0-1731a4463619.png)
+
+ * 치환 
+    
+    예를들어 test파일의 added 를 add로 변경하여 출력 
+    `sed 's/added/add/' test`
+
+ ![image](https://user-images.githubusercontent.com/94778069/142757295-50f87229-2df3-472f-b673-245cee09c2be.png)
+ 
+ * 삭제
+
+    test파일의 line이 들어간 줄을 삭제하여 출력 
+    `sed '/line/d' test`
+![image](https://user-images.githubusercontent.com/94778069/142757410-5d639956-9bd0-4a0f-b247-16a86b1876cc.png)
+
+이외에도 다양한 사용 방법들이 있다.
+
+
+
+
