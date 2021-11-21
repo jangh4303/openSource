@@ -26,7 +26,7 @@ getopt 명령은 **모든 토큰을 읽은 후 또는 특수 토큰 -(더블 하
 
 다음 과 같이 getopt 명령을 쉘 스크립트에서 사용하여 옵션을 구문 분석할 수 있습니다.
 
-\\\
+```
 #!/usr/bin/bsh
 # parse command line into arguments
 set -- `getopt a:bc $*`
@@ -49,11 +49,11 @@ do
         esac
         shift   # next flag
 done
-\\\
+```
 
 getopts 명령의 경우 옵션들 중간에 파일명이 온다거나 하면 이후의 옵션은 옵션으로 인식이 되지 않는데 getopt 명령의 경우는 올바르게 구분하여 정렬해 줍니다.
 
-\\\
+```
 #!/bin/bash
 
 while getopts "a:bc" opt; do
@@ -73,17 +73,17 @@ done
 shift $(( OPTIND - 1 ))
 echo ------------------
 echo "$@"
-\\\
+```
 * getopts
 
-\\\
+```
 $ ./test.sh -a 123 hello.c -bc
 -a was triggered!, OPTARG: 123
 ------------------
 hello.c -bc
-\\\
+```
 * getopt
-\\\
+```
 #!/bin/bash
 
 options=$(getopt -o a:bc -- "$@")
@@ -92,4 +92,4 @@ echo $options
 
 $ ./test.sh -a 123 hello.c -bc
 -a '123' -b -c -- 'hello.c'
-\\\
+```
