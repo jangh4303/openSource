@@ -93,3 +93,7 @@ echo $options
 $ ./test.sh -a 123 hello.c -bc
 -a '123' -b -c -- 'hello.c'
 ```
+
+>getops 명령어
+
+![image](https://user-images.githubusercontent.com/94778069/142756507-03b390a8-2009-4134-a8b0-3eb744bbb895.png)
